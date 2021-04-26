@@ -1,5 +1,6 @@
 const xhttp = new XMLHttpRequest();
 const endPointRoot = "http://localhost:8888/API/v1/";
+const rootUri = "/API/v1/";
 
 //local storage key for user account
 const msg_key = "cst";
@@ -85,7 +86,6 @@ function getAllJobs(){
         }
     };
 }
-
 
 //This function goes through the applicantion table and puts it into the jsonApplicationListArray
 function getallapplicants(){
@@ -231,8 +231,23 @@ function buildjobside(currentUser){
     createP.setAttribute('id', "dynamiconeTitle");
     if(currentUser.accountUsername != "ADMIN" && currentUser.accountEmail != "ADMIN@GMAIL.COM"){
         createP.appendChild(document.createTextNode("[User Mode] - My Job Posting"));
+        
     }else{
         createP.appendChild(document.createTextNode("[Admin Mode] - All Job Posting"));
+        document.getElementById('zero').innerHTML = 
+        `<table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Method</th>
+                    <th scope="col">Endpoint</th>
+                    <th scope="col">Requests</th>
+                </tr>
+            </thead>
+            <tbody id="table-data">
+                <!-- DYNAMIC CONTENT WILL BE GENERATED HERE -->
+            </tbody>
+        </table>`;
+        requestCounts();
     }
     document.getElementById("dynamiconecontainer").appendChild(createP);
 
@@ -273,13 +288,53 @@ function buildjobside(currentUser){
             createDiv.appendChild(createButton);
         }
     }else{
-
         console.log("there is nothing");
         let createP = document.createElement("p");
         createP.setAttribute('id', "emptydb");
         document.getElementById("joblist").appendChild(createP);
         createP.appendChild(document.createTextNode("You have not posted any jobs yet!"));
     }
+}
+
+// This function gets the request counts of all types
+function requestCounts() {
+    (async() => {
+        let result = await fetch(endPointRoot + "queries/")
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then((res) => {
+            res.forEach(element => console.log(element.uri));
+
+            res.forEach(element => createTableObject(element.type, rootUri + element.uri, element.stat));
+        })
+    })();
+}
+
+function createTableObject(type, uri, stat) {
+    let table = document.getElementById("table-data");
+
+    // create query row
+    let tr = document.createElement("tr");
+    table.appendChild(tr);
+
+    // create data type
+    let tdType = document.createElement("td");
+    tdType.innerText = type.toUpperCase();
+
+    // create data uri
+    let tdUri = document.createElement("td");
+    tdUri.innerText = uri;
+    
+    // create data stat
+    let tdStat = document.createElement("td");
+    tdStat.innerText = stat;
+
+    tr.append(tdType);
+    tr.append(tdUri);
+    tr.append(tdStat);
 }
 
 //This function uses localstorage to save the id of the selected job post
@@ -305,7 +360,6 @@ function buildjobedit(thejobid){
 
         if(jsonUserDynamicJobListArray[position].jobID == thejobid){
             
-
             let createDiv = document.createElement("div");
             createDiv.setAttribute('id', "admineditjob");
             createDiv.setAttribute('class', "d-flex flex-column eachjob");
@@ -386,20 +440,20 @@ function buildjobedit(thejobid){
             createDiv2.setAttribute('class', "d-flex justify-content-between");
             createDiv.appendChild(createDiv2);
 
-            // create update button
-            let createButton = document.createElement("button");
-            createButton.setAttribute('id', "editupdatebutton" + thejobid);
-            createButton.setAttribute('class', "btn btn-warning adminbutton");
-            createButton.setAttribute('onclick', 'updateonclick(this.id)');
-            createButton.appendChild(document.createTextNode("Update"));
-            createDiv2.appendChild(createButton);
-
             // create delete button
-            createButton = document.createElement("button");
+            let createButton = document.createElement("button");
             createButton.setAttribute('id', "editdeletebutton" + thejobid);
             createButton.setAttribute('class', "btn btn-danger adminbutton");
             createButton.setAttribute('onclick', 'deleteonclick(this.id)');
             createButton.appendChild(document.createTextNode("Delete"));
+            createDiv2.appendChild(createButton);
+
+            // create update button
+            createButton = document.createElement("button");
+            createButton.setAttribute('id', "editupdatebutton" + thejobid);
+            createButton.setAttribute('class', "btn btn-warning adminbutton");
+            createButton.setAttribute('onclick', 'updateonclick(this.id)');
+            createButton.appendChild(document.createTextNode("Update"));
             createDiv2.appendChild(createButton);
         }
     }
@@ -475,7 +529,6 @@ function applicantonclick(clicked_id){
 
     //builds the applicant list
     buildapplicantlist(placeholder);
-
 }
 
 //This function builds the applicant list
@@ -524,7 +577,6 @@ function buildapplicantlist(jobID){
                 //modal attribute
                 createButton.setAttribute('data-toggle', "modal");
                 createButton.setAttribute('data-target', "#exampleModalCenter");
-                
 
                 createButton.appendChild(document.createTextNode("Contact"));
                 createDiv2.appendChild(createButton);
