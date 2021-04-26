@@ -1,0 +1,333 @@
+/** Navbar and logo css*/
+
+#navbarPrimary {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+  }
+  
+  #logoName {
+    color: green;
+    letter-spacing: 1px;
+    font-size: xx-large;
+  }
+  
+  /** navbar dropdown css*/
+  
+  .dropdownButton {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    float: right;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: green;
+    min-width: 160px;
+    z-index: 1;
+    right: 0;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: darkgrey;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropdownButton {
+    background-color: #1b421c;
+  }
+  
+  body {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  /* header */
+  
+  /* Credit: Bootstrap Landing Page Example, Elie Alloun
+  Link: https://codepen.io/ElieAln/pen/xyJoaZ 
+  Detail: All css code is for the loading screen and is from the website above
+  */
+  
+  header.masthead {
+    background-size: cover;
+    height: 95%;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/blur_jobs.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 90vh;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+  }
+  
+  header.masthead {
+    padding-top: 7rem;
+  }
+  
+  header.masthead h3 {
+    font-size: 5rem;
+  }
+  
+  .masthead h1 {
+    font-size: 40px;
+  }
+  
+  .firebaseui-auth-container {
+    padding: 50px;
+    font-size: 10rem;
+  }
+  
+  .btn-primary {
+    margin-top: 50px;
+    padding: 5px;
+    font-size: 30px;
+  }
+  
+  h1 {
+    font-family: "Copperplate Gothic Light";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+    font-size: 2rem;
+    display: inline-block;
+    padding: 1rem;
+    font-weight: 1000;
+    position: relative;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.5s ease, opacity 1s ease;
+  }
+  
+  .is-loading h1 {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  
+  h1:before, h1:after {
+    height: 2px;
+    width: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    transition: width 0.4s ease;
+    transition-delay: 0.8s;
+  }
+  
+  h1:before {
+    top: 0;
+    left: 0;
+  }
+  
+  h1:after {
+    bottom: 0;
+    right: 0;
+  }
+  
+  .is-loading h1:before, .is-loading h1:after {
+    width: 0;
+  }
+  
+  /** icons */
+  
+  .features-icons {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  .features-icons .features-icons-item {
+    max-width: 300px;
+  }
+  
+  .features-icons .features-icons-item .features-icons-icon {
+    height: 100px;
+  }
+  
+  .features-icons .features-icons-item .features-icons-icon i {
+    font-size: 70px;
+  }
+  
+  .features-icons p {
+    font-size: 24px;
+  }
+  
+  /**image showcase */
+  
+  .showcase .showcase-text {
+    padding: 3rem;
+  }
+  
+  .showcase .showcase-img {
+    min-height: 28rem;
+    background-color: #f7fbff;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 45%;
+  }
+  
+  .showcase p {
+    font-size: 24px;
+  }
+  
+  /** testmoials */
+  
+  .testimonials {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  
+  .testimonials .testimonial-item {
+    max-width: 18rem;
+  }
+  
+  .testimonials .testimonial-item img {
+    max-width: 12rem;
+    box-shadow: 0px 5px 5px 0px #adb5bd;
+  }
+  
+  .testimonials h5 {
+    font-size: 30px;
+  }
+  
+  .testimonials p {
+    font-size: 24px;
+  }
+  
+  /** footer padding and font*/
+  
+  footer.footer {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    
+  }
+  
+  .footer {
+    font-size: 20px;
+  }
+  
+  .footer a {
+    color: #1b421c;
+  }
+  
+  /*
+  .social {
+    list-style-type: none;
+    font-size: 160%;
+    padding-left: 0;
+  }
+  .social li {
+    display: inline;
+  }
+  li#follow {
+    font-family: fantasy;
+    color: rgb(0, 123, 254);
+  }
+  */
+  
+  /* mobie view 0~426px  */
+  
+  @media only screen and (max-width: 426px) {
+    header.masthead {
+      padding-top: 5rem;
+      height: 100vh;
+    }
+    .btn-primary {
+      margin-top: 30px;
+      padding: 8px;
+      font-size: 15px;
+    }
+    .firebaseui-auth-container {
+      font-size: 2rem;
+    }
+    .masthead h1 {
+      font-size: 20px;
+    }
+    .logo {
+      width: 100px;
+      height: 100px;
+    }
+    .showcase .showcase-text {
+      padding: 3rem;
+    }
+    .showcase .showcase-img {
+      min-height: 10rem;
+      width: 500px;
+      height: 300px;
+    }
+    .showcase h2 {
+      font-size: 25px;
+    }
+    .features-icons {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .features-icons .features-icons-item {
+      max-width: 280px;
+    }
+    .features-icons .features-icons-item .features-icons-icon {
+      height: 90px;
+    }
+    .features-icons p {
+      font-size: 18px;
+    }
+    .features-icons h2 {
+      font-size: 25px;
+    }
+    .features-icons .features-icons-item .features-icons-icon i {
+      font-size: 60px;
+    }
+    .testimonials h2 {
+      font-size: 20px;
+    }
+    h3 {
+      padding-top: 20px;
+    }
+    .showcase p {
+      font-size: 18px;
+    }
+    .testimonials {
+      padding-top: 3rem;
+      padding-bottom: 1rem;
+    }
+    .testimonials .testimonial-item {
+      max-width: 10rem;
+    }
+    .testimonials .testimonial-item img {
+      max-width: 8rem;
+      box-shadow: 0px 5px 5px 0px #adb5bd;
+    }
+    .testimonials h5 {
+      font-size: 25px;
+    }
+    .testimonials p {
+      font-size: 18px;
+    }
+    .footer {
+      font-size: 13px;
+    }
+  }

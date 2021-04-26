@@ -1,0 +1,53 @@
+.companybuttons{
+    margin: 10px;
+}
+
+.companyform{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.titletextarea{
+    height: 2em;
+    width: 18em;
+}
+
+#jobpay{
+    height: 5em;
+    width: 18em;
+}
+
+#sectionbody{
+    height: 20em;
+    width: 60%;
+}
+
+#useraccount{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#logout{
+    margin-left: 20px;
+}
+
+.companylabel{
+    font-size:24px;
+    font-weight: bold;
+}
+
+/* 792px or less in width */
+@media screen and (max-width: 992px) {
+    #useraccount{
+        display:none;
+    }
+
+    #logout{
+        margin-left: 0px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}

@@ -1,0 +1,62 @@
+#outsideContainer{
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#useraccount{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#jobpageTitle{
+    font-weight: bold;
+    font-size:40px;
+}
+
+#jobhistoryheader{
+    padding: 5px;
+}
+
+#buttonpostjob{
+    height: 55px;
+    
+}
+
+#logout{
+    margin-left: 20px;
+}
+
+.eachjob{
+    margin: 10px;
+    display: block;
+    border: 2px solid lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.titlejob{
+    margin: 10px;
+}
+
+.splitline{
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+}
+
+/* 792px or less in width */
+@media screen and (max-width: 992px) {
+    #useraccount{
+        display:none;
+    }
+
+    #logout{
+        margin-left: 0px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
